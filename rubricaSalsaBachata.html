@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="MobileOptimized" content="width" />
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="MobileOptimized" content="width" />
 
 	<title>Puntuaciones</title>
 	<style type="text/css">*,*:after,*:before{
@@ -10,10 +12,10 @@
                 -moz-box-sizing: border-box;
                 box-sizing: border-box;
             }
-	    html{
-            zoom: 0.85;
-            }
 
+            html{
+            zoom: 0.85;
+          }
 
             #contenedor_carga{
                 background-color: rgba(250, 240, 245, 0);
@@ -105,7 +107,7 @@
                 width: 100px;
                 position: absolute;
                 left:22px;
-                top:60px;
+                top:40px;
                 opacity: 0.4;
             }
 
@@ -162,7 +164,7 @@
                 font-size: 18px;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 left:20px;
-                top: 95px;
+                top: 75px;
             }
             #txt2{
                 top: 35px;   /*incremento 55*/
@@ -217,10 +219,10 @@
             }
 
             #variableDisplay1{
-                top:150px;
+                top:130px;
             }
             #variableDisplay2{
-                top:200px;
+                top:160px;
             }
             
 
@@ -256,7 +258,7 @@
                 color:rgb(2, 28, 66);
                 border-style: double;
                 left:140px;
-                top: 95px;
+                top: 75px;
                 border-radius: 50px;
                 text-align: center;
                 line-height: 20px;
@@ -878,9 +880,14 @@ function cambios3(lugares){
         get(child(dbRef, 'calificacionesSabado/'+categoriaDisp+'/'+lugares[i]+'/'+nJuez.value+'/')).then((snapshot) => {
                                         var misCalificaciones=[];
                                         snapshot.forEach(childSnapshot =>{
+                
                                                 misCalificaciones.push(childSnapshot.val());
+                                            
+                                                
                                         });
+                                        console.log("GGGGGGGGGGGGGGGGG");
                                         console.log(lugares[i]+' : '+misCalificaciones[11]);   // es l_calificaciones esta en la pos 11 del arreglo
+                                        if(misCalificaciones[11]!=undefined)
                                         document.getElementById('lugaresDisplay').innerText += `${misCalificaciones[11]}`+` - ${lugares[i]}`+"\n";
                                     
                                     });
