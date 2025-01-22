@@ -1,978 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="MobileOptimized" content="width" />
-
-	<title>Puntuaciones</title>
-	<style type="text/css">*,*:after,*:before{
-                margin:0;
-                padding:0;
-                -webkit-box-sizing: border-box; 
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-            }
-
-            html{
-            zoom: 0.85;
-          }
-
-            #contenedor_carga{
-                background-color: rgba(250, 240, 245, 0);
-                height:100%;
-                width: 100%;
-                position: fixed;
-                -webkit-transition: all 1s ease;
-                -o-transition: all 1s ease;
-                transition: all 1s ease;
-                z-index:10000;
-                visibility:hidden;
-                opacity: '0';
-            }
-
-            .contenedor {
-                position: absolute;
-                top:50px;
-                left: 10px;
-                border-radius: 15px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-                padding: 30px;
-                max-width: 800px;
-                width: 435px;
-                height: 580px;
-                text-align: center;
-            }
-
-            #carga{
-                border:15px solid #ccc;
-                border-top-color:#F4266A ;
-                border-top-style:groove ;
-                height: 100px;
-                width: 100px;
-                border-radius: 100%;
-                position: absolute;
-                top:200px;
-                left:400px;
-                
-                margin:auto;
-                -webkit-animation: girar 1.5s linear infinite;
-                -o-animation: girar 1.5s linear infinite;
-                animation:girar 1.5s linear infinite;
-            }
-            @keyframes girar{
-                from{transform: rotate(0deg);}
-                to{transform: rotate(360deg);}
-            }
-
-          
-            #scroll-bg{
-                background: rgb(15,15,204);
-                width:100%;
-                margin:10% auto;
-                padding:30px;
-                border-radius:50px;
-            }
-
-            #scroll-div{
-                float:left;
-                width:30px;
-                background:rgb(17,17,105);
-                height:320px;
-                overflow:hidden;
-                overflow-y:scroll;
-            }
-            #scroll-object{
-                color:rgb(17,17,105);
-                font-family:cursive;
-                font-size:15px;
-                padding:20px;
-                
-            }
-            #grafica{
-                float:left;
-            }
-
-            #num1,#num2,#num3,#num4,#num5,#num6,
-            #num7,#num8,#num9,#num10{
-                width:350px;
-                position: absolute;
-                left: 550px;
-                box-shadow: 0 4px 8px rgba(93, 50, 50, 0.3);
-                
-                  
- 
-            }
-
-            /* Cambia el tamaño del thumb al pasar sobre él */
-            input[type="range"]::-webkit-slider-thumb:hover {
-                transform: scale(1.3);
-                background-color: #3e8e41;
-                
-            }
-
-      
-
-            
-       
-            #image1{
-                height:100px;
-                width: 100px;
-                position: absolute;
-                left:22px;
-                top:40px;
-                opacity: 0.4;
-            }
-
-            #campo{
-
-                font-family: sans-serif;
-                font-size: 20px;
-                color:rgb(249, 248, 247);
-                font-weight: bold;
-                position:absolute;
-                top:10px;
-                left:10px;
-            }
-
-            #campo1{
-                font-family: sans-serif;
-                font-size: 20px;
-                color:rgb(181, 9, 9);
-                font-weight: bold;
-                position:absolute;
-                top:10px;
-                left:110px;
-            }
-            #competenciaN{
-                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color:aliceblue;
-            }
-            #cuerpo{
-                background: linear-gradient(
-                to bottom, 
-                #141414,    /* Color oscuro superior (negro o gris oscuro) */
-                #292931,    /* Color intermedio (gris oscuro tirando a púrpura) */
-                #6a003a    /* Color inferior (rojo oscuro/púrpura oscuro) */
-                );
-                height: 110vh;
-                margin: 0; 
-            }
-
-            #txt2,#txt3,#txt4,#txt5,
-            #txt6,#txt7,#txt8,#txt9,
-            #txt10,#txt11{
-                position: absolute;
-                color:aliceblue;  
-                text-shadow: 2px 2px#110000;
-                font-size: 15px;
-                left:580px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                 
-            }
-            #txt1{
-                position: absolute;
-                color:aliceblue;  
-                text-shadow: 2px 2px#110000;
-                font-size: 18px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                left:20px;
-                top: 75px;
-            }
-            #txt2{
-                top: 35px;   /*incremento 55*/
-                
-            }
-            #txt3{
-                position: relative;
-                top: -20px;
-            }
-            #txt4{
-                position: relative;
-                top: -20px;
-            }
-            #txt5{
-                position: relative;
-                top: -20px;
-            }
-            #txt6{
-                position: relative;
-                top: -20px;
-            }
-            #txt7{
-                position: relative;
-                top: -20px;
-            }
-            #txt8{
-                position: relative;
-                top: -20px;
-            }
-            #txt9{
-                position: relative;
-                top: -20px;
-            }
-            #txt10{
-                position: relative;
-                top: -20px;
-            }
-            #txt11{
-                position: relative;
-                top: -20px;
-            }
-
-
-
-            #variableDisplay1,#variableDisplay2{
-                position: absolute;
-                color:aliceblue;  
-                text-shadow: 2px 2px#110000;
-                font-size: 18px;
-                left:20px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-
-            #variableDisplay1{
-                top:130px;
-            }
-            #variableDisplay2{
-                top:160px;
-            }
-            
-
-
-
-            #lugaresDisplay{
-                position: absolute;
-                color:rgb(161, 163, 163);  
-                text-shadow: 2px 2px#110000;
-                font-size: 16px;
-                left:20px;top:150px;
-                font-family:Verdana, Geneva, Tahoma, sans-serif;
-                top:210px;
-
-            }
-
-            #calificacionDisplay{
-                position: absolute;
-                color:aliceblue;  
-                text-shadow: 2px 2px#110000;
-                font-size: 45px;
-                left:150px; top:430px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-            }
-            
-            #nJuez{
-                position: absolute;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-style: italic;
-                font-size: 20px;
-                /*background:linear-gradient(to bottom right, rgb(96, 97, 97),#f3f4f1);*/
-                color:rgb(2, 28, 66);
-                border-style: double;
-                left:140px;
-                top: 75px;
-                border-radius: 50px;
-                text-align: center;
-                line-height: 20px;
-            }
-           #tiempoMusical,#coreografia,#musicalidad,
-           #tecnicaDanza,#tecnicaGenero,#dificultad,
-           #originalidad,#proyeccion,#presentacion,#controlSincCo{
-            position:absolute;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color:#f5f1f1;
-            text-shadow: 2px 2px#110000;
-            font-size: 22px;
-            left: 510px;
-           }
-           #tiempoMusical{ top:52px;}
-           #musicalidad{ top: calc(52px *2.1);}
-           #tecnicaDanza{ top: calc(52px *3.23);}
-           
-           
-           
-
-
-           #boton:active {
-            transform: scale(0.98);
-            
-            box-shadow: 3px 2px 50px 1px rgba(0, 0, 0, 0.5);
-            
-            background-color: yellow;
-            
-          }
-
-
-
-        #boton {
-        position: absolute;
-        left:80px;
-        top:500px;
-        height:90px;
-        width:250px;
-        background: linear-gradient(90deg, #ff5f5f, #ff9966); /* Degradado de rojo a naranja */
-        color: white;                /* Texto en blanco */
-        font-weight: bold;           /* Negrita para el texto */
-        border: none;                /* Sin bordes */
-        border-radius: 20px;         /* Bordes redondeados */
-        padding: 10px 20px;          /* Espaciado interno */
-        font-size: 25px;             /* Tamaño de fuente */
-        cursor: pointer;             /* Cambia el cursor al pasar el mouse */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra debajo del botón */
-        transition: transform 0.2s ease-in-out;    /* Transición para animación en hover */
-        }
-
-        #boton:hover {
-        transform: scale(1.05);      
-        }
-                #preload{
-                    height:88px;
-                    width:400px;
-                    background-color:#f6f2f2;
-                    font-family: Georgia, 'Times New Roman', Times, serif;
-                    font-size: 30px;
-                    position: absolute;
-                    left:414px;
-                    top: 300px;
-                }
-
-
-	</style>
-
-
-
-</head>
-<body id="cuerpo"><!--Config FireBase2 *******************************************************************************--><script type="module">
-
-            // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyDCE4jPWSR0X5_nTB-RBEqxlvy0MTEAbRI",
-            authDomain: "celaya2024-490a8.firebaseapp.com",
-            projectId: "celaya2024-490a8",
-            storageBucket: "celaya2024-490a8.appspot.com",
-            messagingSenderId: "452774629228",
-            appId: "1:452774629228:web:b94100e990ebf25bb9ed49",
-            measurementId: "G-D070TH0S6Q"
-        };
-
-
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-
-        
-        import {getDatabase,ref,set,child,update,remove,get,onValue} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
-        
-        
-        
-        const db=getDatabase();
-        
-
-            var categoriaDisp="-";
-            var texto = obtenerParametro('texto');
-            var imagen = document.getElementById('image1');
-            var n1=document.getElementById('num1');
-            var n2=document.getElementById('num2');
-            var n3=document.getElementById('num3');
-            var n4=document.getElementById('num4');
-            var n5=document.getElementById('num5');
-            var n6=document.getElementById('num6');
-            var n7=document.getElementById('num7');
-            var n8=document.getElementById('num8');
-            var n9=document.getElementById('num9');
-            var n10=document.getElementById('num10');
-            var nJuez=document.getElementById('nJuez');
-            var notasId=document.getElementById('notas');
-            var nn1=document.getElementById('tiempoMusical');
-            var nn2=document.getElementById('musicalidad');
-            var nn3=document.getElementById('tecnicaDanza');
-            var nn4=document.getElementById('tecnicaGenero');
-            var nn5=document.getElementById('coreografia');
-            var nn6=document.getElementById('dificultad');
-            var nn7=document.getElementById('originalidad');
-            var nn8=document.getElementById('proyeccion');
-            var nn9=document.getElementById('presentacion');
-            var nn10=document.getElementById('controlSincCo');
-            var ncal=document.getElementById('calificacionDisplay');
-            var categoriaDisp=document.getElementById('variableDisplay1').innerText;
-            var competidorDisp=document.getElementById('variableDisplay2').innerText;
-            categoriaDisp="1 TEAM TEEN SHOW STAR"
-    
-            nJuez.value=texto;
-            imagen.src="images/"+texto+".png"; 
-            imagen.onerror = () => { imagen.src = "images/noperfil.png"; }; 
-            
-
-            function InsertData(){
-
-
-                var contenedor=document.getElementById('contenedor_carga');
-                contenedor.style.visibility='visible';
-                let categSel=document.getElementById('competidorCategoria');
-                var cal=calcularCalificaciones();
-                var calificacion=cal.toString();
-                
-                
-                
-                
-                
-                
-                if(nn1.innerHTML=="" || nn2.innerHTML=="" ||nn3.innerHTML==""||nn4.innerHTML==""||nn5.innerHTML==""||nJuez.value==""){
-                    alert("LLENA TODOS LOS CAMPOS, CALIFICACIONES NO GUARDADAS");
-                }
-                else{   
-
-                            if(nn1.innerHTML<50 || nn1.innerHTML>100||nn2.innerHTML<50||nn2.innerHTML>100||nn3.innerHTML<50||nn3.innerHTML>100||nn4.innerHTML<50||nn4.innerHTML>100||nn5.innerHTML<50||nn5.innerHTML>100){
-                                alert("La calificación debe estar entre 0 y 10"); 
-
-                            }else{
-
-                            
-
-
-                                                    set(ref(db, "JUECES/"+nJuez.value),{
-                                                    
-                                                    a_juez:nJuez.value,
-                                                    b_tiempo:nn1.innerHTML,
-                                                    c_musicalidad:nn2.innerHTML,
-                                                    d_tecnicaDanza:nn3.innerHTML,
-                                                    e_tecnicaGenero:nn4.innerHTML,
-                                                    f_coreografia:nn5.innerHTML,
-                                                    g_dificultad:nn6.innerHTML,
-                                                    h_originalidad:nn7.innerHTML,
-                                                    i_proyecccion:nn8.innerHTML,
-                                                    j_presentacion:nn9.innerHTML,
-                                                    k_control:nn10.innerHTML,
-                                                    l_calificacion:calificacion
-                                                    //m_notas:notasId.value
-                                                    
-                                                    
-                                                    
-                                                })
-                                                .then(()=>{
-                                                    contenedor.style.visibility='hidden';
-                                                    alert("CALIFICACIONES ALMACENADAS CON ÉXITO!!!!");
-                                                    n1.value=50;n2.value=50;n3.value=50;
-                                                    n4.value=50;n5.value=50;n6.value=50;
-                                                    n7.value=50;n8.value=50;n9.value=50;
-                                                    n10.value=50;
-                                                    nn1.innerHTML=50;nn2.innerHTML=50;nn3.innerHTML=50;
-                                                    nn4.innerHTML=50;nn5.innerHTML=50;nn6.innerHTML=50;
-                                                    nn7.innerHTML=50;nn8.innerHTML=50;nn9.innerHTML=50;
-                                                    nn10.innerHTML=50;
-                                                })
-                                                .catch((error)=>{
-                                                    alert("error al guardar"+error);
-                                                });
-                                                //borra campo notas
-                                                //notas.value="";
-                                                
-                            }
-
-                }
-                
-                
-                
-                
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <script>
+            //if browser support service worker
+            if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
             };
-
-    //--------------calculo calificacion----------------
-    function calcularCalificaciones(){
-        var cal=(Number.parseFloat(nn1.innerHTML)*0.10
-                +Number.parseFloat(nn2.innerHTML)*0.10
-                +Number.parseFloat(nn3.innerHTML)*0.15
-                +Number.parseFloat(nn4.innerHTML)*0.15
-                +Number.parseFloat(nn5.innerHTML)*0.10
-                +Number.parseFloat(nn6.innerHTML)*0.10
-                +Number.parseFloat(nn7.innerHTML)*0.10
-                +Number.parseFloat(nn8.innerHTML)*0.05
-                +Number.parseFloat(nn9.innerHTML)*0.05
-                +Number.parseFloat(nn10.innerHTML)*0.10).toFixed(2);
-        ncal.innerHTML=cal;
-        return cal;
-
-    }
-    //--------------calculo calificacion----------------
-
-
-
-
-    function obtenerParametro(parametro) {
-            var urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(parametro);
-
+    </script>
+  <title>Competition Software</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #141414, #292931, #6a003a);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
     }
 
-    
-    boton.addEventListener('click',InsertData);
-            
-    //Eventos Barras
-
-    
-    n1.addEventListener('mousemove',function(e){
-        nn1.innerHTML=n1.value;   
-        calcularCalificaciones();
-	});
-
-    n2.addEventListener('mousemove',function(e){
-        nn2.innerHTML=n2.value;  
-        calcularCalificaciones();
-	});
-         
-    n3.addEventListener('mousemove',function(e){
-        nn3.innerHTML=n3.value; 
-        calcularCalificaciones();
-	});
-
-    n4.addEventListener('mousemove',function(e){
-        nn4.innerHTML=n4.value;
-        calcularCalificaciones();   
-	});
-
-    n5.addEventListener('mousemove',function(e){
-        nn5.innerHTML=n5.value;
-        calcularCalificaciones();   
-	});
-    n6.addEventListener('mousemove',function(e){
-        nn6.innerHTML=n6.value; 
-        calcularCalificaciones();  
-	});
-
-    n7.addEventListener('mousemove',function(e){
-        nn7.innerHTML=n7.value; 
-        calcularCalificaciones();  
-	});
-
-    n8.addEventListener('mousemove',function(e){
-        nn8.innerHTML=n8.value; 
-        calcularCalificaciones();  
-	});
-
-    n9.addEventListener('mousemove',function(e){
-        nn9.innerHTML=n9.value; 
-        calcularCalificaciones();  
-	});
-
-    n10.addEventListener('mousemove',function(e){
-        nn10.innerHTML=n10.value; 
-        calcularCalificaciones();  
-	});
-
-    n1.addEventListener('touchmove',function(e){
-        nn1.innerHTML=n1.value; 
-        calcularCalificaciones();  
-	});
-
-    n2.addEventListener('touchmove',function(e){
-        nn2.innerHTML=n2.value;
-        calcularCalificaciones();  
-	});
-
-    n3.addEventListener('touchmove',function(e){
-        nn3.innerHTML=n3.value;
-        calcularCalificaciones();
-	});
-
-    n4.addEventListener('touchmove',function(e){
-        nn4.innerHTML=n4.value;
-        calcularCalificaciones();  
-	});
-
-    n5.addEventListener('touchmove',function(e){
-        nn5.innerHTML=n5.value;
-        calcularCalificaciones();  
-	});
-
-    n6.addEventListener('touchmove',function(e){
-        nn6.innerHTML=n6.value;  
-        calcularCalificaciones();
-	});
-
-    n7.addEventListener('touchmove',function(e){
-        nn7.innerHTML=n7.value;  
-        calcularCalificaciones();
-	});
-
-    n8.addEventListener('touchmove',function(e){
-        nn8.innerHTML=n8.value;  
-        calcularCalificaciones();
-	});
-
-    n9.addEventListener('touchmove',function(e){
-        nn9.innerHTML=n9.value;  
-        calcularCalificaciones();
-	});
-
-    n10.addEventListener('touchmove',function(e){
-        nn10.innerHTML=n10.value;  
-        calcularCalificaciones();
-	});
-
-    n1.addEventListener('click',function(e){
-        nn1.innerHTML=n1.value;
-        calcularCalificaciones();  
-	});
-
-    n2.addEventListener('click',function(e){
-        nn2.innerHTML=n2.value;
-        calcularCalificaciones();
-	});
-
-    n3.addEventListener('click',function(e){
-        nn3.innerHTML=n3.value;
-        calcularCalificaciones();   
-	});
-
-    n4.addEventListener('click',function(e){
-        nn4.innerHTML=n4.value;
-        calcularCalificaciones();
-        
-	});
-    n5.addEventListener('click',function(e){
-        nn5.innerHTML=n5.value; 
-        calcularCalificaciones();
-	});
-
-    n6.addEventListener('click',function(e){
-        nn6.innerHTML=n6.value;
-        calcularCalificaciones(); 
-	});
-
-    n7.addEventListener('click',function(e){
-        nn7.innerHTML=n7.value;
-        calcularCalificaciones(); 
-	});
-
-    n8.addEventListener('click',function(e){
-        nn8.innerHTML=n8.value;
-        calcularCalificaciones(); 
-	});
-
-    n9.addEventListener('click',function(e){
-        nn9.innerHTML=n9.value;
-        calcularCalificaciones(); 
-	});
-
-    n10.addEventListener('click',function(e){
-        nn10.innerHTML=n10.value;
-        calcularCalificaciones(); 
-	});
-
-    n1.addEventListener('touchenter',function(e){
-        nn1.innerHTML=n1.value; 
-        calcularCalificaciones(); 
-	});
-
-    n2.addEventListener('touchenter',function(e){
-        nn2.innerHTML=n2.value;
-        calcularCalificaciones();
-	});
-
-    n3.addEventListener('touchenter',function(e){
-        nn3.innerHTML=n3.value; 
-        calcularCalificaciones();  
-	});
-
-    n4.addEventListener('touchenter',function(e){
-        nn4.innerHTML=n4.value;
-        calcularCalificaciones();
-        
-	});
-    n5.addEventListener('touchenter',function(e){
-        nn5.innerHTML=n5.value;
-        calcularCalificaciones(); 
-	});
-
-    n6.addEventListener('touchenter',function(e){
-        nn6.innerHTML=n6.value; 
-        calcularCalificaciones();
-	});
-
-    n7.addEventListener('touchenter',function(e){
-        nn7.innerHTML=n7.value; 
-        calcularCalificaciones();
-	});
-
-    n8.addEventListener('touchenter',function(e){
-        nn8.innerHTML=n8.value; 
-        calcularCalificaciones();
-	});
-
-    n9.addEventListener('touchenter',function(e){
-        nn9.innerHTML=n9.value; 
-        calcularCalificaciones();
-	});
-
-    n10.addEventListener('touchenter',function(e){
-        nn10.innerHTML=n10.value; 
-        calcularCalificaciones();
-	});
-
-    n1.addEventListener('change',function(e){
-        nn1.innerHTML=n1.value; 
-        calcularCalificaciones();
-        
-    });
-
-    n2.addEventListener('change',function(e){
-        nn2.innerHTML=n2.value; 
-        calcularCalificaciones();
-       
-    });
-
-    n3.addEventListener('change',function(e){
-        nn3.innerHTML=n3.value;
-        calcularCalificaciones(); 
-        
-    });
-
-    n4.addEventListener('change',function(e){
-        nn4.innerHTML=n4.value;
-        calcularCalificaciones(); 
-        
-    });
-
-    n5.addEventListener('change',function(e){
-        nn5.innerHTML=n5.value; 
-        calcularCalificaciones();
-        
-    });
-
-    n6.addEventListener('change',function(e){
-        nn6.innerHTML=n6.value; 
-        calcularCalificaciones();
-        
-    });
-
-    n7.addEventListener('change',function(e){
-        nn7.innerHTML=n7.value; 
-        calcularCalificaciones();
-        
-    });
-
-    n8.addEventListener('change',function(e){
-        nn8.innerHTML=n8.value; 
-        calcularCalificaciones();
-        
-    });
-
-    n9.addEventListener('change',function(e){
-        nn9.innerHTML=n9.value; 
-        calcularCalificaciones();
-        
-    });
-
-
-    n10.addEventListener('change',function(e){
-        nn10.innerHTML=n10.value; 
-        calcularCalificaciones();
-        
-    });
-
-
-
-// Escuchar cambios
-const variableRef = ref(db, 'miVariable');
-onValue(variableRef, (snapshot) => {
-  const valor = snapshot.val();
-  var arreglo=[];
-  document.getElementById('variableDisplay1').innerText = `Categoria: ${valor.nCategoria}`;
-  document.getElementById('variableDisplay2').innerText = `Competidor: ${valor.nCompetidor}`;
-  categoriaDisp=valor.nCategoria;
-  console.log(categoriaDisp);
-  console.log('AAAAAAAAAAAA');
-  obtenerLugares().then(lugares => {
-    console.log("Array de lugares:", lugares);
-    cambios3(lugares);
-});
-
- 
-});
-
-const variableRef1 = ref(db, 'calificacionesSabado');
-onValue(variableRef1, (snapshot) => {
-  const valor = snapshot.val();
-  //var arreglo=[];
-  //document.getElementById('variableDisplay1').innerText = `Categoria: ${valor.nCategoria}`;
-  //document.getElementById('variableDisplay2').innerText = `Competidor: ${valor.nCompetidor}`;
-  //categoriaDisp=valor.nCategoria;
-  //console.log(categoriaDisp);
-  console.log('AAAAAAAAAAAA');
-  obtenerLugares().then(lugares => {
-    console.log("Array de lugares:", lugares);
-    cambios3(lugares);
-});
-
- 
-});
-
-
-
-
-// Escuchar cambios 2
-/*
-function  cambios2(){
-            //var categoriaDisp=document.getElementById('variableDisplay1').innerText.substr(12, 0);;
-              //  console.log(categoriaDisp);
-              //  console.log(competidorDisp);
-            const dbRef = ref(db);
-            var lugares = [];
-            get(child(dbRef, 'calificacionesSabado/'+categoriaDisp)).then((snapshot) => {
-                    
-                    snapshot.forEach(childSnapshot => {
-                        const nombreHijo = childSnapshot.key; // Obtén el nombre del hijo
-                        const subHijos = childSnapshot.val(); // Obtén los sub-hijos como un objeto
-                        
-                        //console.log("Nombre del hijo:", nombreHijo); // Imprime el nombre de cada hijo de calificacionesSabado
-                        //console.log("Sub-hijos:", subHijos); // Imprime los sub-hijos de cada nodo hijo
-                        
-                        lugares.push(nombreHijo ); // Almacena en el array si deseas usarlo más adelante
-                    });
-                    for(let i=1;i<lugares.length;i++){
-                        console.log(lugares[i]);
-                        
-                    }
-                    console.log("aaaareeergggllooo");
-                    console.log(lugares);
-                    
-
-            });
-            console.log("aaaareeergggllooo");
-            console.log(lugares);
-            
-    
-            
-}*/
-
-////////---------------------------
-async function obtenerLugares() {
-    const dbRef = ref(db);
-    let lugares = [];
-
-    try {
-        const snapshot = await get(child(dbRef, 'calificacionesSabado/' + categoriaDisp));
-        
-        snapshot.forEach(childSnapshot => {
-            const nombreHijo = childSnapshot.key;
-            lugares.push(nombreHijo);
-        });
-
-        return lugares; // Devuelve `lugares` después de que se ha completado
-    } catch (error) {
-        console.error("Error obteniendo los lugares:", error);
-        return []; // Devuelve un arreglo vacío en caso de error
+    h1 {
+      font-size: 36px;
+      margin-top: 20px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     }
-}
 
-///////----------------------------
+    .competition { color: #ff0000; }
+    .software { color: #ffffff; }
 
-
-function cambios3(lugares){
-
-    const dbRef = ref(db);
-    console.log("JAJAJAJAAJAJAJAJAJ");
-    console.log(lugares[1]);
-    console.log(categoriaDisp);
-    console.log(nJuez.value);
-    document.getElementById('lugaresDisplay').innerText="";
-    for(let i=1;i<lugares.length;i++){
-        get(child(dbRef, 'calificacionesSabado/'+categoriaDisp+'/'+lugares[i]+'/'+nJuez.value+'/')).then((snapshot) => {
-                                        var misCalificaciones=[];
-                                        snapshot.forEach(childSnapshot =>{
-                
-                                                misCalificaciones.push(childSnapshot.val());
-                                            
-                                                
-                                        });
-                                        console.log("GGGGGGGGGGGGGGGGG");
-                                        console.log(lugares[i]+' : '+misCalificaciones[11]);   // es l_calificaciones esta en la pos 11 del arreglo
-                                        if(misCalificaciones[11]!=undefined)
-                                        document.getElementById('lugaresDisplay').innerText += `${misCalificaciones[11]}`+` - ${lugares[i]}`+"\n";
-                                    
-                                    });
-
+    .carousel-container {
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
-            
 
-}
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
 
+    .image-container {
+      position: relative;
+      width: 300px;
+      height: 280px;
+      margin: 0 10px;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
 
+    .image-container:hover { 
+      transform: scale(1.05); 
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    }
 
-     
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
-          </script>
-<!--<p id="competenciaN">Dance Judge Pro</p>-->
-<img id="image1" src="images/Salsa Bachata.png" />
-<fieldset><br />
-<!--<legend id="campo">Bachata Competition</legend>-->
-<br>
-<label id="campo">BACHATA</label><label id="campo1">COMPETITION</label>
-<div id="contenedor_carga">
-<div id="carga">&nbsp;</div>
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 1;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #141414;
+      transform: scale(1.1);
+    }
+
+    .prev { left: 20px; }
+    .next { right: 20px; }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .search-container input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+      width: 250px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-container input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+<h1><span class="competition">Competition</span> <span class="software">Software</span></h1>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Buscar imagen por nombre...">
 </div>
-<label id="txt1">Nombre Juez: </label> <input id="nJuez" readonly="true" type="text" value="Angie Olach" /><br />
 
-<label id="txt2">[ 10% ] Tiempo  </label> <input id="num1" max="100" min="50" step="5" type="range" value="50" /> <span id="tiempoMusical">50</span><br />
-<br />
-<br />
-<label id="txt3">[ 10% ] Musicalidad </label> <input id="num2" max="100" min="50" step="5" type="range" value="50" /> <span id="musicalidad">50</span><br />
-<br />
-<br />
-<label id="txt4">[ 15% ] Técnica de Danza </label> <input id="num3" max="100" min="50" step="5" type="range" value="50" /> <span id="tecnicaDanza">50</span><br />
-<br />
-<br />
-<label id="txt5">[ 15% ] Técnica de Género </label> <input id="num4" max="100" min="50" step="5" type="range" value="50" /> <span id="tecnicaGenero">50</span><br />
-<br />
-<br />
-<label id="txt6">[ 10% ] Coreografía </label> <input id="num5" max="100" min="50" step="5" type="range" value="50" /> <span id="coreografia">50</span><br />
-<br />
-<br />
-<label id="txt7">[ 10% ] Dificultad</label> <input id="num6" max="100" min="50" step="5" type="range" value="50" /> <span id="dificultad">50</span><br />
-<br />
-<br />
-
-<label id="txt8">[ 10% ] Originalidad</label> <input id="num7" max="100" min="50" step="5" type="range" value="50" /> <span id="originalidad">50</span><br />
-<br />
-<br />
-
-<label id="txt9">[ 5% ] Proyección escénica</label> <input id="num8" max="100" min="50" step="5" type="range" value="50" /> <span id="proyeccion">50</span><br />
-<br />
-<br />
-
-<label id="txt10">[ 5% ] Presentación</label> <input id="num9" max="100" min="50" step="5" type="range" value="50" /> <span id="presentacion">50</span><br />
-<br />
-<br />
-
-<label id="txt11">[ 10% ] Control / Sincronización / Conexión</label> <input id="num10" max="100" min="50" step="5" type="range" value="50" /> <span id="controlSincCo">50</span><br />
-<br />
-<br />
-<div class="contenedor">
-
+<div class="carousel-container">
+  <button class="button prev" onclick="moveCarousel(-1)">&#10094;</button>
+  <div class="carousel" id="carousel"></div>
+  <button class="button next" onclick="moveCarousel(1)">&#10095;</button>
 </div>
-<div id="variableDisplay1">Cargando...</div>
-<div id="variableDisplay2"></div>
-<div id="lugaresDisplay"></div>
-<div id="calificacionDisplay">50.00</div>
-<button id="boton" >Calificar</button><br />
 
+<script>
+  const imageNames = [
+    "images/Gaby Equiz.png",
+    "images/Martín González.png",
+    "images/Diego.png",
+    "images/Lorena Andrade.png",
+    "images/Jorge Martinez.png",
+    "images/Dulce.png",
+    "images/Gaby Lorenzana.png",
+    "images/Juan Pedro.png",
+    "images/Danny.png",
+    "images/Dayana.png",
+    "images/Vladimir.png"
+  ];
 
+  const carousel = document.getElementById('carousel');
+  let currentIndex = 0;
 
-<!--
-<label style="font-size: 15pt; ">Notas:</label><br />
-<textarea id="notas" style="height:368px;width:378px;font-size: 15pt; " text-align="right" type="text">            
-            </textarea><br />
-<br />
--->
+  // Generar las imágenes y nombres desde la lista original
+  imageNames.forEach((src, index) => {
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('image-container');
 
+    const img = document.createElement('img');
+    img.src = src;
+    img.onerror = () => { img.src = "images/noperfil.png"; };
+    img.onclick = () => imageClicked(index);
 
-<!-- 
-            <button id="botonCargar" style="height:68px;width:178px;font-size: 15pt; ">Cargar</button>--></fieldset>
-<!--<script src="main.js" ></script>--></body>
+    const fileName = src.split('/').pop().split('.').slice(0, -1).join('.'); 
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    overlay.textContent = fileName;
+
+    imgContainer.appendChild(img);
+    imgContainer.appendChild(overlay);
+    carousel.appendChild(imgContainer);
+  });
+
+  const imageWidth = 300 + 20; // Ancho de la imagen + margen
+  updateCarousel();
+
+  function moveCarousel(direction) {
+    currentIndex += direction;
+
+    // Mantener el índice dentro del rango
+    if (currentIndex < 0) {
+      currentIndex = imageNames.length - 1; // Última imagen
+    } else if (currentIndex >= imageNames.length) {
+      currentIndex = 0; // Primera imagen
+    }
+
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    carousel.style.transition = 'transform 0.5s ease';
+    carousel.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+  }
+
+  function imageClicked(index) {
+    const fotoSel = imageNames[index].split('/').pop().split('.').slice(0, -1).join('.'); 
+    const texto = fotoSel;
+    window.location.href = 'rubricaSalsaBachata.html?texto=' + encodeURIComponent(texto);
+  }
+
+  // Implementación de deslizamiento táctil
+  let startX = 0;
+  let endX = 0;
+
+  carousel.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX; // Captura la posición inicial
+  });
+
+  carousel.addEventListener('touchend', (event) => {
+    endX = event.changedTouches[0].clientX; // Captura la posición final
+    handleGesture();
+  });
+
+  function handleGesture() {
+    if (startX > endX + 50) {
+      // Deslizar a la izquierda
+      moveCarousel(1);
+    } else if (startX < endX - 50) {
+      // Deslizar a la derecha
+      moveCarousel(-1);
+    }
+  }
+
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const filteredImages = imageNames.filter(name => name.toLowerCase().includes(query));
+    const visibleImages = Array.from(carousel.children);
+    
+    visibleImages.forEach((container, index) => {
+      const fileName = imageNames[index].split('/').pop().split('.').slice(0, -1).join('.').toLowerCase();
+      if (filteredImages.includes(imageNames[index])) {
+        container.style.display = 'block'; // Mostrar contenedor que coincide
+      } else {
+        container.style.display = 'none'; // Ocultar contenedor que no coincide
+      }
+    });
+
+    if (filteredImages.length > 0) {
+      currentIndex = 0; // Reiniciar el índice al buscar
+      updateCarousel(); // Actualizar carrusel
+    }
+  });
+</script>
+
+</body>
 </html>
