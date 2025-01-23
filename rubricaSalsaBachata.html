@@ -257,7 +257,7 @@
             color:#f5f1f1;
             text-shadow: 2px 2px#110000;
             font-size: 22px;
-            left: 510px;
+            left: 470px;
            }
            #tiempoMusical{ top:52px;}
            #musicalidad{ top: calc(52px *2.1);}
@@ -311,6 +311,143 @@
                 }
 
 
+                 /* Contenedor principal */
+                .range-control {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                /* Estilo general para los botones */
+                .range-control button {
+                    background-color: #e7ebee; /* Color azul */
+                    color: rgb(4, 4, 4); /* Texto blanco */
+                    border: none; /* Sin bordes */
+                    border-radius: 50%; /* Forma redonda */
+                    width: 40px; /* Ancho fijo */
+                    height: 40px; /* Alto fijo */
+                    font-size: 20px; /* Tamaño del texto */
+                    font-weight: bold; /* Negrita */
+                    cursor: pointer; /* Cambiar el cursor a "mano" */
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+                    display: flex; /* Centrar el contenido */
+                    align-items: center; /* Centrado vertical */
+                    justify-content: center; /* Centrado horizontal */
+                    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+                    opacity: 0.1;
+                }
+
+                  /* Efecto activo (al presionar) */
+                    .range-control button:active {
+                        color: rgb(232, 155, 73);
+                        opacity: 0.5;
+                        transform: scale(0.9); /* Reducir tamaño */
+                    }
+                
+
+/* Estilos base para los botones de decremento */
+#decValue1,
+#decValue2,
+#decValue3,
+#decValue4,
+#decValue5,
+#decValue6,
+#decValue7,
+#decValue8,
+#decValue9 {
+  position: absolute;
+  left: 505px;
+}
+
+/* Estilos base para los botones de incremento */
+#incValue1,
+#incValue2,
+#incValue3,
+#incValue4,
+#incValue5,
+#incValue6,
+#incValue7,
+#incValue8,
+#incValue9 {
+  position: absolute;
+  left: 905px;
+}
+
+/* Espaciado entre botones (55px de separación) */
+#decValue1 {
+  top: 42px;
+}
+
+#incValue1 {
+  top: 42px;
+}
+
+#decValue2 {
+  top: calc(42px + 57px * 1);
+}
+
+#incValue2 {
+  top: calc(42px + 57px * 1);
+}
+
+#decValue3 {
+  top: calc(42px + 57px * 2);
+}
+
+#incValue3 {
+  top: calc(42px + 57px * 2);
+}
+
+#decValue4 {
+  top: calc(42px + 57px * 3);
+}
+
+#incValue4 {
+  top: calc(42px + 57px * 3);
+}
+
+#decValue5 {
+  top: calc(42px + 57px * 4);
+}
+
+#incValue5 {
+  top: calc(42px + 57px * 4);
+}
+
+#decValue6 {
+  top: calc(42px + 57px * 5);
+}
+
+#incValue6 {
+  top: calc(42px + 57px * 5);
+}
+
+#decValue7 {
+  top: calc(42px + 57px * 6);
+}
+
+#incValue7 {
+  top: calc(42px + 57px * 6);
+}
+
+#decValue8 {
+  top: calc(42px + 57px * 7);
+}
+
+#incValue8 {
+  top: calc(42px + 57px * 7);
+}
+
+#decValue9 {
+  top: calc(42px + 57px * 8);
+}
+
+#incValue9 {
+  top: calc(42px + 57px * 8);
+}
+        
+
+
 	</style>
 
 
@@ -360,7 +497,7 @@
             var n6=document.getElementById('num6');
             var n7=document.getElementById('num7');
             var n8=document.getElementById('num8');
-            //var n9=document.getElementById('num9');
+            var n9=document.getElementById('num9');
             //var n10=document.getElementById('num10');
             var nJuez=document.getElementById('nJuez');
             var notasId=document.getElementById('notas');
@@ -372,7 +509,7 @@
             var nn6=document.getElementById('dificultad');
             var nn7=document.getElementById('originalidad');
             var nn8=document.getElementById('proyeccion');
-            //var nn9=document.getElementById('presentacion');
+            var nn9=document.getElementById('presentacion');
             //var nn10=document.getElementById('controlSincCo');
             var ncal=document.getElementById('calificacionDisplay');
             var categoriaDisp=document.getElementById('variableDisplay1').innerText;
@@ -418,7 +555,7 @@
                                                     g_dificultad:nn6.innerHTML,
                                                     h_proyEscenica:nn7.innerHTML,
                                                     i_presVisual:nn8.innerHTML,
-                                                    //j_presentacion:nn9.innerHTML,
+                                                    j_conexion:nn9.innerHTML,
                                                     //k_control:nn10.innerHTML,
                                                     l_calificacion:calificacion
                                                     //m_notas:notasId.value
@@ -430,13 +567,15 @@
                                                     contenedor.style.visibility='hidden';
                                                     //alert("CALIFICACIONES ALMACENADAS CON ÉXITO!!!!");
                                                     showModal();
-                                                    n1.value=50;n2.value=50;n3.value=50;
-                                                    n4.value=50;n5.value=50;n6.value=50;
-                                                    n7.value=50;n8.value=50;//n9.value=50;
+                                                    //n1.value=50;n2.value=50;n3.value=50;
+                                                    //n4.value=50;n5.value=50;n6.value=50;
+                                                    //n7.value=50;n8.value=50;n9.value=50;
                                                     //n10.value=50;
-                                                    nn1.innerHTML=50;nn2.innerHTML=50;nn3.innerHTML=50;
-                                                    nn4.innerHTML=50;nn5.innerHTML=50;nn6.innerHTML=50;
-                                                    nn7.innerHTML=50;nn8.innerHTML=50;//nn9.innerHTML=50;
+                                                    //nn1.innerHTML=50;nn2.innerHTML=50;nn3.innerHTML=50;
+                                                    //nn4.innerHTML=50;nn5.innerHTML=50;nn6.innerHTML=50;
+                                                    //nn7.innerHTML=50;nn8.innerHTML=50;nn9.innerHTML=50;
+                                                    //calcularCalificaciones();//calificacionDisplay.innerText=50.00;//------------------------
+                                                    
                                                     //nn10.innerHTML=50;
                                                 })
                                                 .catch((error)=>{
@@ -457,13 +596,14 @@
     //--------------calculo calificacion----------------
     function calcularCalificaciones(){
         var cal=(Number.parseFloat(nn1.innerHTML)*0.20
-                +Number.parseFloat(nn2.innerHTML)*0.15
-                +Number.parseFloat(nn3.innerHTML)*0.15
+                +Number.parseFloat(nn2.innerHTML)*0.10
+                +Number.parseFloat(nn3.innerHTML)*0.10
                 +Number.parseFloat(nn4.innerHTML)*0.10
                 +Number.parseFloat(nn5.innerHTML)*0.10
                 +Number.parseFloat(nn6.innerHTML)*0.10
                 +Number.parseFloat(nn7.innerHTML)*0.10
-                +Number.parseFloat(nn8.innerHTML)*0.10).toFixed(2);
+                +Number.parseFloat(nn8.innerHTML)*0.10
+                +Number.parseFloat(nn9.innerHTML)*0.10).toFixed(2);
         ncal.innerHTML=cal;
         return cal;
 
@@ -523,12 +663,12 @@
         nn8.innerHTML=n8.value; 
         calcularCalificaciones();  
 	});
-/*
+
     n9.addEventListener('mousemove',function(e){
         nn9.innerHTML=n9.value; 
         calcularCalificaciones();  
 	});
-
+/*
     n10.addEventListener('mousemove',function(e){
         nn10.innerHTML=n10.value; 
         calcularCalificaciones();  
@@ -573,12 +713,12 @@
         nn8.innerHTML=n8.value;  
         calcularCalificaciones();
 	});
-/*
+
     n9.addEventListener('touchmove',function(e){
         nn9.innerHTML=n9.value;  
         calcularCalificaciones();
 	});
-
+/*
     n10.addEventListener('touchmove',function(e){
         nn10.innerHTML=n10.value;  
         calcularCalificaciones();
@@ -623,12 +763,12 @@
         nn8.innerHTML=n8.value;
         calcularCalificaciones(); 
 	});
-/*
+
     n9.addEventListener('click',function(e){
         nn9.innerHTML=n9.value;
         calcularCalificaciones(); 
 	});
-
+/*
     n10.addEventListener('click',function(e){
         nn10.innerHTML=n10.value;
         calcularCalificaciones(); 
@@ -673,13 +813,13 @@
         nn8.innerHTML=n8.value; 
         calcularCalificaciones();
 	});
-/*
+
     n9.addEventListener('touchenter',function(e){
         nn9.innerHTML=n9.value; 
         calcularCalificaciones();
 	});
 
-    n10.addEventListener('touchenter',function(e){
+/*    n10.addEventListener('touchenter',function(e){
         nn10.innerHTML=n10.value; 
         calcularCalificaciones();
 	});
@@ -731,14 +871,14 @@
         calcularCalificaciones();
         
     });
-/*
+
     n9.addEventListener('change',function(e){
         nn9.innerHTML=n9.value; 
         calcularCalificaciones();
         
     });
 
-
+/*
     n10.addEventListener('change',function(e){
         nn10.innerHTML=n10.value; 
         calcularCalificaciones();
@@ -842,6 +982,14 @@ function cambios3(lugares){
                 function showModal() {
                 document.getElementById("customModal").style.display = "block";
                 document.getElementById("modalOverlay").style.display = "block";
+                                                    n1.value=50;n2.value=50;n3.value=50;
+                                                    n4.value=50;n5.value=50;n6.value=50;
+                                                    n7.value=50;n8.value=50;n9.value=50;
+                                                    //n10.value=50;
+                                                    nn1.innerHTML=50;nn2.innerHTML=50;nn3.innerHTML=50;
+                                                    nn4.innerHTML=50;nn5.innerHTML=50;nn6.innerHTML=50;
+                                                    nn7.innerHTML=50;nn8.innerHTML=50;nn9.innerHTML=50;
+                                                    calcularCalificaciones();
             }
 
             // Función para cerrar el modal
@@ -853,7 +1001,274 @@ function cambios3(lugares){
 
                 //----- ventana aceptar
 
-     
+    //-------botones incrementar- decrementar
+    decValue1.addEventListener('click',decreaseValue1);
+      // Función para disminuir el valor
+            function decreaseValue1() {
+                const min = Number(n1.min); // Convertir a número
+                const step = Number(n1.step);
+                const currentValue = Number(n1.value);
+
+                if (currentValue - step >= min) {
+                n1.value = currentValue - step;
+                tiempoMusical.textContent = n1.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue1.addEventListener('click',increaseValue1);
+              // Función para aumentar el valor
+            function increaseValue1() {
+                const max = Number(n1.max); // Convertir a número
+                const step = Number(n1.step);
+                const currentValue = Number(n1.value);
+
+                if (currentValue + step <= max) {
+                n1.value = currentValue + step;
+                tiempoMusical.textContent = n1.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+
+
+    decValue2.addEventListener('click',decreaseValue2);
+      // Función para disminuir el valor
+            function decreaseValue2() {
+                const min = Number(n2.min); // Convertir a número
+                const step = Number(n2.step);
+                const currentValue = Number(n2.value);
+
+                if (currentValue - step >= min) {
+                n2.value = currentValue - step;
+                musicalidad.textContent = n2.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue2.addEventListener('click',increaseValue2);
+              // Función para aumentar el valor
+            function increaseValue2() {
+                const max = Number(n2.max); // Convertir a número
+                const step = Number(n2.step);
+                const currentValue = Number(n2.value);
+
+                if (currentValue + step <= max) {
+                n2.value = currentValue + step;
+                musicalidad.textContent = n2.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+            decValue3.addEventListener('click',decreaseValue3);
+      // Función para disminuir el valor
+            function decreaseValue3() {
+                const min = Number(n3.min); // Convertir a número
+                const step = Number(n3.step);
+                const currentValue = Number(n3.value);
+
+                if (currentValue - step >= min) {
+                n3.value = currentValue - step;
+                tecnicaDanza.textContent = n3.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue3.addEventListener('click',increaseValue3);
+              // Función para aumentar el valor
+            function increaseValue3() {
+                const max = Number(n3.max); // Convertir a número
+                const step = Number(n3.step);
+                const currentValue = Number(n3.value);
+
+                if (currentValue + step <= max) {
+                n3.value = currentValue + step;
+                tecnicaDanza.textContent = n3.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+
+    
+  decValue4.addEventListener('click',decreaseValue4);
+      // Función para disminuir el valor
+            function decreaseValue4() {
+                const min = Number(n4.min); // Convertir a número
+                const step = Number(n4.step);
+                const currentValue = Number(n4.value);
+
+                if (currentValue - step >= min) {
+                n4.value = currentValue - step;
+                tecnicaGenero.textContent = n4.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue4.addEventListener('click',increaseValue4);
+              // Función para aumentar el valor
+            function increaseValue4() {
+                const max = Number(n4.max); // Convertir a número
+                const step = Number(n4.step);
+                const currentValue = Number(n4.value);
+
+                if (currentValue + step <= max) {
+                n4.value = currentValue + step;
+                tecnicaGenero.textContent = n4.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+
+            decValue5.addEventListener('click',decreaseValue5);
+      // Función para disminuir el valor
+            function decreaseValue5() {
+                const min = Number(n5.min); // Convertir a número
+                const step = Number(n5.step);
+                const currentValue = Number(n5.value);
+
+                if (currentValue - step >= min) {
+                n5.value = currentValue - step;
+                coreografia.textContent = n5.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue5.addEventListener('click',increaseValue5);
+              // Función para aumentar el valor
+            function increaseValue5() {
+                const max = Number(n5.max); // Convertir a número
+                const step = Number(n5.step);
+                const currentValue = Number(n5.value);
+
+                if (currentValue + step <= max) {
+                n5.value = currentValue + step;
+                coreografia.textContent = n5.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+            decValue6.addEventListener('click',decreaseValue6);
+      // Función para disminuir el valor
+            function decreaseValue6() {
+                const min = Number(n6.min); // Convertir a número
+                const step = Number(n6.step);
+                const currentValue = Number(n6.value);
+
+                if (currentValue - step >= min) {
+                n6.value = currentValue - step;
+                dificultad.textContent = n6.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue6.addEventListener('click',increaseValue6);
+              // Función para aumentar el valor
+            function increaseValue6() {
+                const max = Number(n6.max); // Convertir a número
+                const step = Number(n6.step);
+                const currentValue = Number(n6.value);
+
+                if (currentValue + step <= max) {
+                n6.value = currentValue + step;
+                dificultad.textContent = n6.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+    
+  decValue7.addEventListener('click',decreaseValue7);
+      // Función para disminuir el valor
+            function decreaseValue7() {
+                const min = Number(n7.min); // Convertir a número
+                const step = Number(n7.step);
+                const currentValue = Number(n7.value);
+
+                if (currentValue - step >= min) {
+                n7.value = currentValue - step;
+                originalidad.textContent = n7.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue7.addEventListener('click',increaseValue7);
+              // Función para aumentar el valor
+            function increaseValue7() {
+                const max = Number(n7.max); // Convertir a número
+                const step = Number(n7.step);
+                const currentValue = Number(n7.value);
+
+                if (currentValue + step <= max) {
+                n7.value = currentValue + step;
+                originalidad.textContent = n7.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+            decValue8.addEventListener('click',decreaseValue8);
+      // Función para disminuir el valor
+            function decreaseValue8() {
+                const min = Number(n8.min); // Convertir a número
+                const step = Number(n8.step);
+                const currentValue = Number(n8.value);
+
+                if (currentValue - step >= min) {
+                n8.value = currentValue - step;
+                proyeccion.textContent = n8.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue8.addEventListener('click',increaseValue8);
+              // Función para aumentar el valor
+            function increaseValue8() {
+                const max = Number(n8.max); // Convertir a número
+                const step = Number(n8.step);
+                const currentValue = Number(n8.value);
+
+                if (currentValue + step <= max) {
+                n8.value = currentValue + step;
+                proyeccion.textContent = n8.value;
+                calcularCalificaciones();
+                
+                }
+            }
+
+            decValue9.addEventListener('click',decreaseValue9);
+      // Función para disminuir el valor
+            function decreaseValue9() {
+                const min = Number(n9.min); // Convertir a número
+                const step = Number(n9.step);
+                const currentValue = Number(n9.value);
+
+                if (currentValue - step >= min) {
+                n9.value = currentValue - step;
+                presentacion.textContent = n9.value;
+                calcularCalificaciones();
+               
+                }
+            }
+    incValue9.addEventListener('click',increaseValue9);
+              // Función para aumentar el valor
+            function increaseValue9() {
+                const max = Number(n9.max); // Convertir a número
+                const step = Number(n9.step);
+                const currentValue = Number(n9.value);
+
+                if (currentValue + step <= max) {
+                n9.value = currentValue + step;
+                presentacion.textContent = n9.value;
+                calcularCalificaciones();
+                
+                }
+            }
+    //-------botones incrementar- decrementar
 
           </script>
 <!--<p id="competenciaN">Dance Judge Pro</p>-->
@@ -868,13 +1283,15 @@ function cambios3(lugares){
 </div>
 <label id="txt1">Nombre Juez: </label> <input id="nJuez" readonly="true" type="text" value="Angie Olach" /><br />
 
+
 <label id="txt2">[ 20% ] Tiempo  </label> <input id="num1" max="100" min="50" step="1" type="range" value="50" /> <span id="tiempoMusical">50</span><br />
 <br />
 <br />
-<label id="txt3">[ 15% ] Musicalidad </label> <input id="num2" max="100" min="50" step="1" type="range" value="50" /> <span id="musicalidad">50</span><br />
+
+<label id="txt3">[ 10% ] Musicalidad </label> <input id="num2" max="100" min="50" step="1" type="range" value="50" /> <span id="musicalidad">50</span><br />
 <br />
 <br />
-<label id="txt4">[ 15% ] Coreografía </label> <input id="num3" max="100" min="50" step="1" type="range" value="50" /> <span id="tecnicaDanza">50</span><br />
+<label id="txt4">[ 10% ] Coreografía </label> <input id="num3" max="100" min="50" step="1" type="range" value="50" /> <span id="tecnicaDanza">50</span><br />
 <br />
 <br />
 <label id="txt5">[ 10% ] Técnica de Danza </label> <input id="num4" max="100" min="50" step="1" type="range" value="50" /> <span id="tecnicaGenero">50</span><br />
@@ -894,17 +1311,34 @@ function cambios3(lugares){
 <label id="txt9">[ 10% ] Presentación Visual</label> <input id="num8" max="100" min="50" step="1" type="range" value="50" /> <span id="proyeccion">50</span><br />
 <br />
 <br />
-<!--
-<label id="txt10">[ 5% ] Presentación</label> <input id="num9" max="100" min="50" step="1" type="range" value="50" /> <span id="presentacion">50</span><br />
-<br />
-<br />
 
+<label id="txt10">[ 10% ] Conexión</label> <input id="num9" max="100" min="50" step="1" type="range" value="50" /> <span id="presentacion">50</span><br />
+<br />
+<br />
+<!--
 <label id="txt11">[ 10% ] Control / Sincronización / Conexión</label> <input id="num10" max="100" min="50" step="1" type="range" value="50" /> <span id="controlSincCo">50</span><br />
 <br />
 <br />-->
 <div class="contenedor">
 
 </div>
+
+
+<div class="range-control">
+<button id="decValue1">-</button> <button id="incValue1">+</button>
+<button id="decValue2">-</button> <button id="incValue2">+</button>
+<button id="decValue3">-</button> <button id="incValue3">+</button>
+<button id="decValue4">-</button> <button id="incValue4">+</button>
+<button id="decValue5">-</button> <button id="incValue5">+</button>
+<button id="decValue6">-</button> <button id="incValue6">+</button>
+<button id="decValue7">-</button> <button id="incValue7">+</button>
+<button id="decValue8">-</button> <button id="incValue8">+</button>
+<button id="decValue9">-</button> <button id="incValue9">+</button>
+
+
+</div>
+
+
 <div id="variableDisplay1">Cargando...</div>
 <div id="variableDisplay2"></div>
 <div id="lugaresDisplay"></div>
